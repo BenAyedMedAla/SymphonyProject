@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="font/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>خدمة</title>
+</head>
+<body>
+    
+
+   <main>
+       <?php
+          while($row = mysqli_fetch_assoc($all_product)){
+       ?>
+       <div class="card">
+           <div class="image">
+               <img src="../lesCINSworkers/<?php echo $row["image"]; ?>" alt="">
+           </div>
+           <div class="caption">
+               <p class="rate">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+               </p>
+               <p class="product_name"><?php echo $row["company_name"];  ?></p>
+               <p class="price"><b>$<?php echo $row["salary"]; ?></b></p>
+               <p class="discount"><b><del>$<?php echo $row["job_name"]; ?></del></b></p>
+               <p class="description"><b><del>$<?php echo $row["description"]; ?></del></b></p>
+           </div>
+           
+       </div>
+
+
+       <div class="explore-content">
+                        <div class="row">
+                            <div class=" col-md-4 col-sm-6">
+                                <div class="single-explore-item">
+                                    <div class="single-explore-img">
+                                        <img src="../lesCINSworkers/<?php echo $row["image"]; ?>" alt="explore image">
+                                        <div class="single-explore-img-info">
+                                            <button onclick="window.location.href='#'">best rated</button>
+                                        </div>
+                                    </div>
+                                    <div class="single-explore-txt bg-theme-1">
+                                        <h2><a href="#"><?php echo $row["company_name"];  ?></a></h2>
+                                        <p class="explore-rating-price">
+                                            <span class="explore-rating">5.0</span>
+                                            <a href="#"> 10 ratings</a> 
+                                            <span class="explore-price-box">
+                                                form
+                                                <span class="explore-price">$<?php echo $row["salary"]; ?></b></span>
+                                            </span>
+                                             <a href="#">$<?php echo $row["job_name"]; ?></a>
+                                        </p>
+                                        <div class="explore-person">
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <div class="explore-person-img">
+                                                        <a href="#">
+                                                            <img src="../lesCINSworkers/<?php echo $row["image"]; ?>" alt="explore person">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-11">
+                                                    <p>
+                                                    $<?php echo $row["description"]; ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="explore-open-close-part">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <button class="close-btn" onclick="window.location.href='#'">unavailable</button>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="explore-map-icon">
+                                                        <a href="#"><i data-feather="map-pin"></i></a>
+                                                        <a href="#"><i data-feather="upload"></i></a>
+                                                        <a href="#"><i data-feather="heart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <?php
+
+          }
+     ?>
+   </main>
+
+   </body>
+</html>
