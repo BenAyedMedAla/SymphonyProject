@@ -1,0 +1,53 @@
+# config/packages/framework.yaml
+framework:
+    secret: '%env(APP_SECRET)%'
+    session:
+        handler_id: ~
+
+doctrine:
+    dbal:
+        # Configuration du driver de base de données
+        driver: 'pdo_mysql'
+
+        # Configuration de la version du serveur MySQL
+        server_version: '10.4.32'
+
+        # Configuration du jeu de caractères
+        charset: utf8mb4
+
+        # Configuration des paramètres de connexion
+        dbname: 'khedma'
+        user: 'root'
+        password: null  # Laissez le champ de mot de passe vide
+
+        host: '127.0.0.1' # ou l'hôte de votre serveur MySQL
+        port: '3306' # le port MySQL
+
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
+                alias: App
+
+when@test:
+    doctrine:
+        dbal:
+            # "TEST_TOKEN" is typically set by ParaTest
+            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+
+        
+
+
+
+    framework:
+        cache:
+            pools:
+                doctrine.result_cache_pool:
+                    adapter: cache.app
+                doctrine.system_cache_pool:
+                    adapter: cache.system
