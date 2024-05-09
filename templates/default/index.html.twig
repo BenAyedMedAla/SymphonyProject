@@ -1,0 +1,16 @@
+{# templates/default/index.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Données de la base de données</title>
+</head>
+<body>
+    <h1>Liste des enregistrements :</h1>
+    <ul>
+        {% for registration in registrations %}
+            <li>{{ registration.firstName }} {{ registration.lastName }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
