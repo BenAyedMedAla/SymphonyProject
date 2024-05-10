@@ -12,7 +12,7 @@ class CategoriesController extends AbstractController
     
     #[Route('/categories', name: 'categories')]
  function index():Response{
-    return $this->render('tpweb/category.html.twig') ;
+    return $this->render('category.html.twig') ;
 
 }}
 
