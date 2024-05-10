@@ -12,7 +12,7 @@ class ContactController extends AbstractController
     
     #[Route('/contact', name: 'contact')]
  function index():Response{
-    return $this->render('tpweb/contact.html.twig') ;
+    return $this->render('contact.html.twig') ;
 
 }}
 

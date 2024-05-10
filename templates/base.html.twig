@@ -135,9 +135,9 @@
                   // Set the form action based on the selected user type
                   if (userType === 'job-seeker') {
         
-                    $('#form-login').attr('action', 'login-job-seeker.php');
+                    $('#form-login').attr('action', '{{path('app_log')}}');
                   } else if (userType === 'worker-seeker') {
-                    $('#form-login').attr('action', 'login-worker-seeker.php');
+                    $('#form-login').attr('action', '{{path('app_log')}}p');
                   }
             
                   // Submit the form
@@ -193,26 +193,7 @@
 		  </script>  
 		  
 
-		  <script>
-			
-			// Define the loggingin() function
-			function loggingin() {
-				// Get the selected user type
-				var userType = $('input[name="seeker-type"]:checked').val();
-	
-				// Set the form action based on the selected user type
-				if (userType === 'job-seeker') {
-
-					$('#form-login').attr('action', 'login-job-seeker.php');
-				} else if (userType === 'worker-seeker') {
-					$('#form-login').attr('action', 'login-worker-seeker.php');
-				}
-	
-				// Submit the form
-				$('#form-login').submit();
-			}
-		
-	</script>
+		  s
 	
 	
 
