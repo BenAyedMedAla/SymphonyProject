@@ -1,35 +1,9 @@
 {% include 'basedash.html.twig' %}
-
+ {% include 'headerdash.html.twig' %}
 {% block body %}
-    {% include 'headerdash.html.twig' %}
+   
 
-    <?php
-    session_start();
-    if(isset($_SESSION['facebook'])) {
-        $facebookUrl = $_SESSION['facebook'];
-    } else {
-        // Set $facebookUrl to '#' if $_SESSION['facebook'] is not set
-        $facebookUrl = '#';
-    }
-
-    if(isset($_SESSION['instagram'])) {
-        $instagramUrl = $_SESSION['instagram'];
-    } else {
-        $instagramUrl = '#';
-    }
-
-    if(isset($_SESSION['twitter'])) {
-        $twitterUrl = $_SESSION['twitter'];
-    } else {
-        $twitterUrl = '#';
-    }
-
-    if(isset($_SESSION['linkedin'])) {
-        $linkedinUrl = $_SESSION['linkedin'];
-    } else {
-        $linkedinUrl = '#';
-    }
-    ?>
+  
     {# <body> #}
 
     <!-- Sales Chart Start -->
@@ -38,7 +12,7 @@
             <div class="wrapper">
                 <div class="left">
                     <img src=" ../lesCINSworkers/<?=$_SESSION['cin_image'] ?>" alt="user" width="100">
-                    <h4><?=$_SESSION["first_name"]." ".$_SESSION["last_name"] ?></h4>
+                    <h4><?={{user.firstname}}~" "~{{user.lastname}}?></h4>
                     <p style="color: whitesmoke;">Worker</p>
                 </div>
                 <div class="right">
@@ -65,10 +39,10 @@
                     </div>
                     <div class="social_media">
                         <ul>
-                            <li><a href="{{ facebookUrl }}"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="{{ twitterUrl }}"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="{{ instagramUrl }}"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="{{ linkedinUrl }}"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -157,7 +131,7 @@
         </div>
     </div>
     <div class="col-12 text-center">
-        <a href="{{ path('job_search') }}" class="view">See More</a>
+        <a href="{{ path('app_log') }}" class="view">See More</a>
     </div>
 
     <!-- Testimonial End -->
