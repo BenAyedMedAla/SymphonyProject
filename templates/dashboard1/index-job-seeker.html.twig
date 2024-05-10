@@ -1,43 +1,10 @@
 {% include 'basedash.html.twig' %}
 
 	    {% block body %}
-		{% include 'headerdash.html.twig' %}
-
-
-<?php
-session_start();
-if(isset($_SESSION['facebook'])) {
-    $facebookUrl = $_SESSION['facebook'];
-} else {
-    // Set $facebookUrl to '#' if $_SESSION['facebook'] is not set
-    $facebookUrl = '#';
-}
-
-if(isset($_SESSION['instagram'])) {
-    $instagramUrl = $_SESSION['instagram'];
-} else {
-    
-    $instagramUrl = '#';
-}
-
-
-if(isset($_SESSION['twitter'])) {
-    $twitterUrl = $_SESSION['twitter'];
-} else {
-    
-    $twitterUrl = '#';
-}
-
-if(isset($_SESSION['linkedin'])) {
-    $linkedinUrl = $_SESSION['linkedin'];
-} else {
-    
-    $linkedinUrl = '#';
-}
+		
 
 
 
-?>
 {# <body> #}
 
              <!-- Sales Chart Start -->

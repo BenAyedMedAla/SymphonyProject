@@ -43,10 +43,9 @@ class LoginController1 extends AbstractController
         $session->set('user', $user);
 
         // Render dashboard template with user data
-        return $this->render('default/index.html.twig', [
-            'registrations' => $user,
-            'email'=>$email,
-            'asba'=>$password
+        return $this->render('dashboard1/index-job-seeker.html.twig', [
+            'user' => $user,
+            
         ]);
     }
 }
