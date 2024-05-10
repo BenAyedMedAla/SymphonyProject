@@ -1,187 +1,169 @@
 {% include 'basedash.html.twig' %}
 
-	    {% block body %}
-		{% include 'headerdash.html.twig' %}
+{% block body %}
+    {% include 'headerdash.html.twig' %}
 
+    <?php
+    session_start();
+    if(isset($_SESSION['facebook'])) {
+        $facebookUrl = $_SESSION['facebook'];
+    } else {
+        // Set $facebookUrl to '#' if $_SESSION['facebook'] is not set
+        $facebookUrl = '#';
+    }
 
-<?php
-session_start();
-if(isset($_SESSION['facebook'])) {
-    $facebookUrl = $_SESSION['facebook'];
-} else {
-    // Set $facebookUrl to '#' if $_SESSION['facebook'] is not set
-    $facebookUrl = '#';
-}
+    if(isset($_SESSION['instagram'])) {
+        $instagramUrl = $_SESSION['instagram'];
+    } else {
+        $instagramUrl = '#';
+    }
 
-if(isset($_SESSION['instagram'])) {
-    $instagramUrl = $_SESSION['instagram'];
-} else {
-    
-    $instagramUrl = '#';
-}
+    if(isset($_SESSION['twitter'])) {
+        $twitterUrl = $_SESSION['twitter'];
+    } else {
+        $twitterUrl = '#';
+    }
 
+    if(isset($_SESSION['linkedin'])) {
+        $linkedinUrl = $_SESSION['linkedin'];
+    } else {
+        $linkedinUrl = '#';
+    }
+    ?>
+    {# <body> #}
 
-if(isset($_SESSION['twitter'])) {
-    $twitterUrl = $_SESSION['twitter'];
-} else {
-    
-    $twitterUrl = '#';
-}
-
-if(isset($_SESSION['linkedin'])) {
-    $linkedinUrl = $_SESSION['linkedin'];
-} else {
-    
-    $linkedinUrl = '#';
-}
-
-
-
-?>
-{# <body> #}
-
-             <!-- Sales Chart Start -->
-             <div class="container-fluid pt-4 px-4">
-                <div class="bg-light rounded p-4">
-                    <div class="wrapper">
-                        <div class="left">
-                            <img src=" ../lesCINSworkers/<?=$_SESSION['cin_image'] ?>" 
-                            alt="user" width="100">
-                            <h4><?=$_SESSION["first_name"]." ".$_SESSION["last_name"] ?></h4>
-                            <p style="color: whitesmoke;">Worker </p>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Information</h3>
-                                <div class="info_data">
-                                    <div class="data">
-                                        <h4>Email</h4>
-                                        <p><?= $_SESSION["email"] ?></p>
-                                    </div>
-                                    <div class="data">
-                                    <h4>Phone</h4>
-                                        <p><?=  $_SESSION["phone_number"] ?></p>
-                                </div>
-                                </div>
-                            </div>
-                        
-                        <div class="projects">
-                                
-                                <div class="projects_data">
-                                    <div class="data">
-                                        <h4>City</h4>
-                                        <p><?= $_SESSION["city"] ?></p>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        
-                            <div class="social_media">
-                                <ul>
-                                    
-                                    <li><a href="<?= $facebookUrl ?>"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="<?= $twitterUrl ?>"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="<?= $instagramUrl ?>"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="<?= $linkedinUrl ?>"><i class="fab fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-
+    <!-- Sales Chart Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-light rounded p-4">
+            <div class="wrapper">
+                <div class="left">
+                    <img src=" ../lesCINSworkers/<?=$_SESSION['cin_image'] ?>" alt="user" width="100">
+                    <h4><?=$_SESSION["first_name"]." ".$_SESSION["last_name"] ?></h4>
+                    <p style="color: whitesmoke;">Worker</p>
                 </div>
-
-            </div>
-            <!-- Sales Chart End -->
-
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fas fa-clock icon fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Posted Today</p>
-                                <h6 class="mb-0">34</h6>
+                <div class="right">
+                    <div class="info">
+                        <h3>Information</h3>
+                        <div class="info_data">
+                            <div class="data">
+                                <h4>Email</h4>
+                                <p><?= $_SESSION["email"] ?></p>
+                            </div>
+                            <div class="data">
+                                <h4>Phone</h4>
+                                <p><?=  $_SESSION["phone_number"] ?></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fas fa-thumbs-up icon fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Likes</p>
-                                <h6 class="mb-0">234</h6>
+                    <div class="projects">
+                        <div class="projects_data">
+                            <div class="data">
+                                <h4>City</h4>
+                                <p><?= $_SESSION["city"] ?></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fas fa-envelope icon fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Requests</p>
-                                <h6 class="mb-0">74</h6>
-                            </div>
-                        </div>
+                    <div class="social_media">
+                        <ul>
+                            <li><a href="{{ facebookUrl }}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{ twitterUrl }}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{ instagramUrl }}"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="{{ linkedinUrl }}"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fas fa-eye icon fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Vues</p>
-                                <h6 class="mb-0">142</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Sale & Revenue End -->
-
-<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container">
-        <div class="section-title text-center">
-            <h1 class="tab display-5 mb-5">Opportunities</h1>
-        </div>
-        <div class="owl-carousel testimonial-carousel">
-            <div class="testimonial-item text-center">
-                <img class="img-fluid bg-light p-2 mx-auto mb-3" src="./img/logo-geiser.png" style="width: 90px; height: 90px;">
-                <div class="testimonial-text text-center p-4">
-                            <h2>Société Générale Informatique Et Services - Geiserr</h2>
-                    <p>Services de securité informatiques ....</p>
-                    <h5 class="mb-1">ENGINEER</h5>
-                    <span class="fst-italic">Good Salary</span>
-                </div>
-            </div>
-            <div class="testimonial-item text-center">
-                <img class="img-fluid bg-light p-2 mx-auto mb-3" src="./img/aiotech.jpg" style="width: 90px; height: 90px;">
-                <div class="testimonial-text text-center p-4">
-                    <h2>AIO TECHNOLOGY</h2>
-                    <p>WE WANT A GOOD TECHNICIAN ...</p>
-                    <h5 class="mb-1">TECHNICIAN</h5>
-                    <span class="fst-italic">Average Salary</span>
-                </div>
-            </div>
-            <div class="testimonial-item text-center">
-                <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/mark.webp" style="width: 90px; height: 90px;">
-                <div class="testimonial-text text-center p-4">
-                    <h2>SMARTEK SERVICES</h2>
-                    <p>Smatek.services, Tunis, Tunisia.....</p>
-                    <h5 class="mb-1">Customer Service</h5>
-                    <span class="fst-italic">Profession</span>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="col-12 text-center">
-    <a href="./jobsearch.html" class="view">See More</a>
-</div>
+    <!-- Sales Chart End -->
 
-<!-- Testimonial End -->
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-6 col-xl-3">
+                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fas fa-clock icon fa-3x text-primary"></i>
+                    <div class="ms-3">
+                        <p class="mb-2">Posted Today</p>
+                        <h6 class="mb-0">34</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fas fa-thumbs-up icon fa-3x text-primary"></i>
+                    <div class="ms-3">
+                        <p class="mb-2">Likes</p>
+                        <h6 class="mb-0">234</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fas fa-envelope icon fa-3x text-primary"></i>
+                    <div class="ms-3">
+                        <p class="mb-2">Requests</p>
+                        <h6 class="mb-0">74</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fas fa-eye icon fa-3x text-primary"></i>
+                    <div class="ms-3">
+                        <p class="mb-2">Vues</p>
+                        <h6 class="mb-0">142</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sale & Revenue End -->
 
-{# </body> #}
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1 class="tab display-5 mb-5">Opportunities</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="./img/logo-geiser.png" style="width: 90px; height: 90px;">
+                    <div class="testimonial-text text-center p-4">
+                        <h2>Société Générale Informatique Et Services - Geiserr</h2>
+                        <p>Services de sécurité informatiques ....</p>
+                        <h5 class="mb-1">ENGINEER</h5>
+                        <span class="fst-italic">Good Salary</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="./img/aiotech.jpg" style="width: 90px; height: 90px;">
+                    <div class="testimonial-text text-center p-4">
+                        <h2>AIO TECHNOLOGY</h2>
+                        <p>WE WANT A GOOD TECHNICIAN ...</p>
+                        <h5 class="mb-1">TECHNICIAN</h5>
+                        <span class="fst-italic">Average Salary</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/mark.webp" style="width: 90px; height: 90px;">
+                    <div class="testimonial-text text-center p-4">
+                        <h2>SMARTEK SERVICES</h2>
+                        <p>Smatek.services, Tunis, Tunisia.....</p>
+                        <h5 class="mb-1">Customer Service</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 text-center">
+        <a href="{{ path('job_search') }}" class="view">See More</a>
+    </div>
 
+    <!-- Testimonial End -->
 
+    {# </body> #}
 
-  {% include 'footerdash.html.twig' %}
+    {% include 'footerdash.html.twig' %}
 
-        {% endblock %}
+{% endblock %}

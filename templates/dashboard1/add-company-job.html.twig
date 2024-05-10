@@ -1,75 +1,70 @@
 {% include 'basedash.html.twig' %}
 
-	    {% block body %}
-		{% include 'headerdash.html.twig' %}
+{% block body %}
+    {% include 'headerdash.html.twig' %}
    
-<?php
-session_start();
-?>
-{# 
-<body> #}
+    <?php
+    session_start();
+    ?>
+    {# 
+    <body> #}
 
-            <!-- Form Start -->
-            <form method="post" action="addjob.php"  method="post" class="container" id="form-job-adding" enctype="multipart/form-data">
-                <div class="container-fluid pt-4 px-4">
-                    <div class="row g-4">
-                        <div class="col-sm-12 col-xl-12">
-                            <div class="bg-light rounded h-100 p-4">
-                                <h6 class="mb-4">The Post Informations</h6>
-                                
-                                <div class="form-floating mb-3">
-                                    <input  class="form-control" placeholder="Enter your company's name" id="name" name="name">
-                                    <label for="name">Company name</label>
-                                </div>
-                                
-                                <div class="form-floating mb-3">
-                                    <input  class="form-control" placeholder="Enter your job" id="job" name="job">
-                                    <label for="job">Job</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" placeholder="Enter the salary you can offer " id="salary" name="salary">
-                                    <label for="salary">Salary</label>
-                                </div>
-                                
-                                <div class="form-floating mb-3">
-                                    <textarea class="form-control" placeholder="Introduce your company "
-                                        id="profile" name="profile" style="height: 150px;"></textarea>
-                                    <label for="profile">Description of the post</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <div class="form-container">
-                                        <label for="logo-company">Please drop your Company image in JPG format</label>
-                                        <input name="logo-company" type="file" class="form-control" id="logo-company" required>
-                                        <small id="logo-company" class="form-text text-muted">Please upload your Company image in JPG format.</small>
-                                    </div>
-                                </div>
-                                 
-                                <br>
-                                <button type="submit" class="btn btn-primary">ADD</button>
+    <!-- Form Start -->
+    <form method="post" action="{{ path('add_job') }}" method="post" class="container" id="form-job-adding" enctype="multipart/form-data">
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-12">
+                    <div class="bg-light rounded h-100 p-4">
+                        <h6 class="mb-4">The Post Informations</h6>
+
+                        <div class="form-floating mb-3">
+                            <input class="form-control" placeholder="Enter your company's name" id="name" name="name">
+                            <label for="name">Company name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input class="form-control" placeholder="Enter your job" id="job" name="job">
+                            <label for="job">Job</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" placeholder="Enter the salary you can offer " id="salary" name="salary">
+                            <label for="salary">Salary</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Introduce your company "
+                                id="profile" name="profile" style="height: 150px;"></textarea>
+                            <label for="profile">Description of the post</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <div class="form-container">
+                                <label for="logo-company">Please drop your Company image in JPG format</label>
+                                <input name="logo-company" type="file" class="form-control" id="logo-company" required>
+                                <small id="logo-company" class="form-text text-muted">Please upload your Company image in JPG format.</small>
                             </div>
                         </div>
+
+                        <br>
+                        <button type="submit" class="btn btn-primary">ADD</button>
                     </div>
                 </div>
-            </form>
-            <!-- Form End -->
+            </div>
+        </div>
+    </form>
+    <!-- Form End -->
 
-           
+    <br>
+    <br>
 
+    <!-- Form End -->
+   
 
-
-
-<br>
-<br>
-
-            <!-- Form End -->
-           
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     
-{# </body> #}
-{% include 'footerdash.html.twig' %}
+    {# </body> #}
+    {% include 'footerdash.html.twig' %}
 
-        {% endblock %}
+{% endblock %}
