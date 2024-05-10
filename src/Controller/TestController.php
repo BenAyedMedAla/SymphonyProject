@@ -11,7 +11,7 @@ class TestController extends AbstractController
     
     #[Route('/p', name: 'p')]
  function index():Response{
-    return $this->render('tpweb/category.html.twig') ;
+    return $this->render('category.html.twig') ;
 
 }}
 

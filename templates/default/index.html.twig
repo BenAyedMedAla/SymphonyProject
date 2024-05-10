@@ -7,10 +7,10 @@
 </head>
 <body>
     <h1>Liste des enregistrements :</h1>
+   
     <ul>
-        {% for registration in registrations %}
-            <li>{{ registration.firstName }} {{ registration.lastName }}</li>
-        {% endfor %}
+      
+        {{ dump(email) }}
     </ul>
 </body>
 </html>

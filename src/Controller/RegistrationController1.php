@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class RegistrationController extends AbstractController
+class RegistrationController1 extends AbstractController
 {
     #[Route('/register', name: 'registration_register', methods: ['POST'])]
     public function register(Request $request, EntityManagerInterface $em): Response

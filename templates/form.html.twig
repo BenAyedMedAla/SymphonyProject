@@ -1,0 +1,24 @@
+{# templates/resume/form.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Resume Form</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.fullName) }}
+    {{ form_row(form.age) }}
+    <div>
+        <label for="{{ form.languages.vars.id }}">Languages</label>
+        {% for language in form.languages %}
+            <div>
+                {{ form_widget(language) }}
+                {{ form_label(language) }}
+            </div>
+        {% endfor %}
+    </div>
+    {{ form_row(form.skills) }}
+    {{ form_row(form.save) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+
