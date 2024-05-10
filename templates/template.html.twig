@@ -1,0 +1,21 @@
+{# templates/resume/template.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Resume</title>
+</head>
+<body>
+    <h1>Resume</h1>
+    <p><strong>Full Name:</strong> {{ data.fullName }}</p>
+    <p><strong>Age:</strong> {{ data.age }}</p>
+    <p><strong>Languages:</strong></p>
+    <ul>
+        {% for language in data.languages %}
+            <li>{{ language }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>skills:</strong> {{ data.skills }}</p>
+</body>
+</html>
