@@ -9,9 +9,11 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('img/img/favicon.ico') }}" rel="icon">
-
+    <link href="{{ asset('img/favicon.ico') }}" rel="icon">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icon Font Stylesheet -->
@@ -23,19 +25,40 @@
     <link href="{{ asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('css/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{ asset('css/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/css/jdid.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/css/linearicons.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/css/flaticon.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/css/slick.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/css/slick-theme.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/css/stylev2.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/jdid.css') }}" rel="stylesheet">
+<!--font-family-->
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        
+
+<!--font-awesome.min.css-->
+<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+
+<!--linear icon css-->
+<link rel="stylesheet" href="{{ asset('css/linearicons.css') }}">
+
+<!--animate.css-->
+<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+
+<!--flaticon.css-->
+<link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
+
+<!--slick.css-->
+<link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+<link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!--style.css-->
+<link rel="stylesheet" href="{{ asset('css/stylev2.css') }}">
+
+
+<!--responsive.css-->
+
+<link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
  
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -46,9 +69,9 @@
         {% endblock %}
         </head>
 
-  <script src="{{ asset('https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js') }}"></script>
-    <script src="{{ asset('https://code.jquery.com/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('lib/chart/chart.min.js') }}"></script>
     <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
@@ -57,9 +80,9 @@
     <script src="{{ asset('lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
     <script src="{{ asset('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
-    <!-- Votre propre script JavaScript -->
-    <script src="{{ asset('js/js/main.js') }}"></script>
-    <script src="{{ asset('js/js/main1.js') }}"></script>
+    <!-- Template Javascript -->
+    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main1.js') }}"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var securityLink = document.querySelector('a[href="#security"]');
@@ -83,11 +106,4 @@
     <script>
         feather.replace();
     </script>
-{% include 'headerdash.html.twig' %}
-    {% block body %}
-        
-    
-  
-        
-    {% endblock %}
-    
+

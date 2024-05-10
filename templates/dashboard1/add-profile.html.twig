@@ -1,73 +1,66 @@
 {% include 'basedash.html.twig' %}
 
-	    {% block body %}
-		{% include 'headerdash.html.twig' %}
-   
+{% block body %}
+    {% include 'headerdash.html.twig' %}
     
-<?php
-session_start();
-?>
+    <?php
+    session_start();
+    ?>
 
-{# <body> #}
+    {# <body> #}
     
-      
-            <!-- Form Start -->
-            <form method="post" action="addprofile.php"  method="post" class="container" id="form-job-adding" enctype="multipart/form-data">
-                <div class="container-fluid pt-4 px-4">
-                    <div class="row g-4">
-                        <div class="col-sm-12 col-xl-12">
-                            <div class="bg-light rounded h-100 p-4">
-                                <h6 class="mb-4">Profile Informations</h6>
-                                
-                                <div class="form-floating mb-3">
-                                    <input  class="form-control" placeholder="Talk About You Eucation " id="education" name="education">
-                                    <label for="education">Education</label>
-                                </div>
-                                
-                                <div class="form-floating mb-3">
-                                    <input  class="form-control" placeholder="Talk about your skills" id="skills" name="skills">
-                                    <label for="skills">Skills</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="" class="form-control" placeholder="Talk about your experiences" id="experiences" name="experiences">
-                                    <label for="experiences">Experiences</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" placeholder="Age " id="age" name="age">
-                                    <label for="age">Age</label>
-                                </div>
-                                
-                              
-                                <div class="form-floating mb-3">
-                                    <div class="form-container">
-                                        <label for="cv">Please drop your cv in PDf format</label>
-                                        <input name="cv" type="file" class="form-control" id="cv" required>
-                                        <small id="cv" class="form-text text-muted">Please upload your cv  in JPG format.</small>
-                                    </div>
-                                </div>
-                                 
-                                <br>
-                                <button type="submit" class="btn btn-primary">ADD</button>
+    <!-- Form Start -->
+    <form method="post" action="{{ path('add_profile') }}" method="post" class="container" id="form-job-adding" enctype="multipart/form-data">
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-12">
+                    <div class="bg-light rounded h-100 p-4">
+                        <h6 class="mb-4">Profile Informations</h6>
+
+                        <div class="form-floating mb-3">
+                            <input class="form-control" placeholder="Talk About Your Education" id="education" name="education">
+                            <label for="education">Education</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input class="form-control" placeholder="Talk about your skills" id="skills" name="skills">
+                            <label for="skills">Skills</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="" class="form-control" placeholder="Talk about your experiences" id="experiences" name="experiences">
+                            <label for="experiences">Experiences</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" placeholder="Age" id="age" name="age">
+                            <label for="age">Age</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <div class="form-container">
+                                <label for="cv">Please drop your CV in PDF format</label>
+                                <input name="cv" type="file" class="form-control" id="cv" required>
+                                <small id="cv" class="form-text text-muted">Please upload your CV in PDF format.</small>
                             </div>
                         </div>
+
+                        <br>
+                        <button type="submit" class="btn btn-primary">ADD</button>
                     </div>
                 </div>
-            </form>
-            <!-- Form End -->
-<br>
+            </div>
+        </div>
+    </form>
+    <!-- Form End -->
+    <br>
 
-        <!-- Content End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- Content End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     
+    {# </body> #}
 
-    
-{# </body> #}
+    {% include 'footerdash.html.twig' %}
 
-{% include 'footerdash.html.twig' %}
-
-        {% endblock %}
+{% endblock %}

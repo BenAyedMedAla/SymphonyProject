@@ -1,89 +1,84 @@
 {% include 'basedash.html.twig' %}
 
-	{% block body %}
-	{% include 'headerdash.html.twig' %}
+{% block body %}
+    {% include 'headerdash.html.twig' %}
 
+    <?php
+    session_start();
+    ?>
+    <body>
 
+    <!-- Form Start -->
+    <form method="post" action="{{ path('gen_pdf') }}">
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-12">
+                    <div class="bg-light rounded h-100 p-4">
+                        <h6 class="mb-4">Resume Informations</h6>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" placeholder="Enter your age" id="age" name="age">
+                            <label for="age">Age</label>
+                        </div>
 
-<?php
-session_start();
-?>
-
-<body>
-    
-      
-            <!-- Form Start -->
-<form method="post" action="genpdf.php">
-    <div class="container-fluid pt-4 px-4">
-        <div class="row g-4">
-            <div class="col-sm-12 col-xl-12">
-                <div class="bg-light rounded h-100 p-4">
-                    <h6 class="mb-4">Resume Informations</h6>
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" placeholder="Enter your age" id="age" name="age">
-                        <label for="age">Age</label>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="english_proficiency">
+                                <option value="basic">Basic</option>
+                                <option value="Not A Speaker">Not A Speaker</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="fluent">Fluent</option>
+                            </select>
+                            <label for="english">English</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="french_proficiency">
+                                <option value="basic">Basic</option>
+                                <option value="Not A Speaker">Not A Speaker</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="fluent">Fluent</option>
+                            </select>
+                            <label for="french">French</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="arabic_proficiency">
+                                <option value="basic">Basic</option>
+                                <option value="Not A Speaker">Not A Speaker</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="fluent">Fluent</option>
+                            </select>
+                            <label for="arabic">Arabic</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Introduce yourself or give your profile here"
+                                      id="profile" name="profile" style="height: 150px;"></textarea>
+                            <label for="profile">Profile</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Put your skills here"
+                                      id="skills" name="skills" style="height: 150px;"></textarea>
+                            <label for="skills">Skills</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Generate</button>
                     </div>
-                    
-                    <div class="form-floating mb-3">
-                        <select class="form-select" name="english_proficiency">
-                            <option value="basic">Basic</option>
-                            <option value="Not A Speaker">Not A Speaker</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="advanced">Advanced</option>
-                            <option value="fluent">Fluent</option>
-                        </select>
-                        <label for="english">English</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" name="french_proficiency">
-                            <option value="basic">Basic</option>
-                            <option value="Not A Speaker">Not A Speaker</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="advanced">Advanced</option>
-                            <option value="fluent">Fluent</option>
-                        </select>
-                        <label for="french">French</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" name="arabic_proficiency">
-                            <option value="basic">Basic</option>
-                            <option value="Not A Speaker">Not A Speaker</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="advanced">Advanced</option>
-                            <option value="fluent">Fluent</option>
-                        </select>
-                        <label for="arabic">Arabic</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control" placeholder="Introduce yourself or give your profile here"
-                            id="profile" name="profile" style="height: 150px;"></textarea>
-                        <label for="profile">Profile</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control" placeholder="Put your skills here"
-                            id="skills" name="skills" style="height: 150px;"></textarea>
-                        <label for="skills">Skills</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Generate</button>
                 </div>
             </div>
         </div>
+    </form>
+    <!-- Form End -->
+    <br>
+    <br>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-</form>
-<!-- Form End -->
-<br>
-<br>
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-    </div>
+    </body>
 
-    
-</body>
-
-</html>
+    </html>
 
 
-{% include 'footerdash.html.twig' %}
+    {% include 'footerdash.html.twig' %}
 
-        {% endblock %}
+{% endblock %}

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Favicon -->
-    <link href="../img/favicon-32x32.png" rel="icon">
+    <link href="{{ asset('img/favicon-32x32.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
-
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icon Font Stylesheet -->
@@ -23,20 +20,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
-    <!-- <link rel="stylesheet" href="css/all.min1.css" /> -->
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/framework.css" />
-    <link rel="stylesheet" href="css/master.css" />
+    <!-- <link rel="stylesheet" href="{{ asset('css/all.min1.css') }}" /> -->
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/framework.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/master.css') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
@@ -60,62 +57,46 @@
             }
         });
     </script>
-    
-    
-
 </head>
 <?php
 session_start();
-    
 ?>
 <body>
     
     <div class="container-xxl position-relative bg-white d-flex p-0">
         
-        
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light mt-2"  >
                 <div class="logo d-flex align-items-center ms-4 mb-4" >
-                <a href="index-job-seeker.html" ><img src="../img/khedma_logo_f-02.svg" alt="" style="height: 5vh;">
+                <a href="{{ path('index_job_seeker') }}" ><img src="{{ asset('img/khedma_logo_f-02.svg') }}" alt="" style="height: 5vh;">
 									</a>
-                   
                 </div>
                    
             
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                    <img class="rounded-circle" src="../lesCINSworkers/<?= $_SESSION['cin_image']?>" alt="" style="width: 40px; height: 40px;">
+                    <img class="rounded-circle" src="../lesCINSworkers/{{ $_SESSION['cin_image'] }}" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0"> <?=  $_SESSION['first_name']." ".$_SESSION['last_name']?></h6>
+                        <h6 class="mb-0"> {{  $_SESSION['first_name']." ".$_SESSION['last_name'] }}</h6>
                         <span>Worker</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index-job-seeker.html" class="nav-item nav-link "><i class="fas fa-home icon me-2"></i>Home</a>
-                    <a href="add-profile.html" class="nav-item nav-link "><i class="fas fa-search icon me-2"></i>Add Profile</a>
-                    <a href="home.php" class="nav-item nav-link"><i class="fas fa-search icon me-2"></i>Opportunities</a>
-                    <!-- <a href="notifications.html" class="nav-item nav-link"><i class="fas fa-bell icon me-2"></i>Notifications</a> -->
-                    <a href="resume.html" class="nav-item nav-link"><i class="far fa-file icon me-2"></i>Resume Builder</a>
+                    <a href="{{ path('index_job_seeker') }}" class="nav-item nav-link "><i class="fas fa-home icon me-2"></i>Home</a>
+                    <a href="{{ path('add_profile') }}" class="nav-item nav-link "><i class="fas fa-search icon me-2"></i>Add Profile</a>
+                    <a href="{{ path('home') }}" class="nav-item nav-link"><i class="fas fa-search icon me-2"></i>Opportunities</a>
+                    <a href="{{ path('resume') }}" class="nav-item nav-link"><i class="far fa-file icon me-2"></i>Resume Builder</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fas fa-cog icon me-2"></i>Settings</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="settings.html" class="dropdown-item">Profile Management</a>
-                            <a href="settings.html#security" class="dropdown-item">Security</a>
-                            
+                            <a href="{{ path('settings') }}" class="dropdown-item">Profile Management</a>
+                            <a href="{{ path('settings', {'#security'}) }}" class="dropdown-item">Security</a>
                         </div>
                     </div>
-                    <a href="logout.php" class="nav-item nav-link"><i class="fas fa-sign-out-alt icon me-2"></i>Logout</a>
-                    <!-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-
-                            <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="blank.html" class="dropdown-item">Blank Page</a>
-                        </div>
-                    </div> -->
+                    <a href="{{ path('logout') }}" class="nav-item nav-link"><i class="fas fa-sign-out-alt icon me-2"></i>Logout</a>
                 </div>
             </nav>
         </div>
@@ -126,7 +107,7 @@ session_start();
         <div class="content">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-                <a href="index-job-seeker.html" class="navbar-brand d-flex d-lg-none me-4">
+                <a href="{{ path('index_job_seeker') }}" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fas fa-home icon"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
@@ -144,7 +125,7 @@ session_start();
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="{{ asset('img/user.jpg') }}" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                         <small>15 minutes ago</small>
@@ -154,7 +135,7 @@ session_start();
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="{{ asset('img/user.jpg') }}" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                         <small>15 minutes ago</small>
@@ -164,7 +145,7 @@ session_start();
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="{{ asset('img/user.jpg') }}" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                         <small>15 minutes ago</small>
@@ -172,279 +153,213 @@ session_start();
                                 </div>
                             </a>
                             <hr class="dropdown-divider">
-                            <a href="notifications.html" class="dropdown-item text-center">See all messages</a>
+                            <a href="{{ path('notifications') }}" class="dropdown-item text-center">See all messages</a>
                         </div>
                     </div>
-                    <!-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fas fa-envelope icon me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Requests</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Profile updated</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">New user added</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Password changed</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item text-center">See all notifications</a>
-                        </div>
-                    </div> -->
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src=" ../lesCINSworkers/<?=$_SESSION['cin_image'] ?>" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex"><?=$_SESSION["first_name"]." ".$_SESSION["last_name"]?></span>
+                            <img class="rounded-circle me-lg-2" src="../lesCINSworkers/{{ $_SESSION['cin_image'] }}" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">{{ $_SESSION["first_name"]." ".$_SESSION["last_name"] }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                   
-                            <a href="settings.html" class="dropdown-item">Settings</a>
-                            <a href="logout.php" class="dropdown-item">Log Out</a>
+                            <a href="{{ path('settings') }}" class="dropdown-item">Settings</a>
+                            <a href="{{ path('logout') }}" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
          
-
-        <div class="container-fluid pt-4 px-4">
-            <h1 class="p-relative">Settings</h1>
-            <div class="row g-4">
-
-
+            <div class="container-fluid pt-4 px-4">
+                <h1 class="p-relative">Settings</h1>
+                <div class="row g-4">
                     <div class="settings-page m-20 d-grid gap-20">
-                    <!-- Start Settings Box -->
+                        <!-- Start Settings Box -->
                         <div class="p-20 bg-white rad-10">
                             <div class="bg-light rounded h-100 p-4">
-                            <h2 class="mt-0 mb-10">Site Control</h2>
-                            <p class="mt-0 mb-20 c-grey fs-15">Control The Website If There Is Maintenance</p>
-                            <div class="mb-15 between-flex">
-                            <div>
-                                <span>Website Control</span>
-                                <p class="c-grey mt-5 mb-0 fs-13">Open/Close Website And Type The Reason</p>
+                                <h2 class="mt-0 mb-10">Site Control</h2>
+                                <p class="mt-0 mb-20 c-grey fs-15">Control The Website If There Is Maintenance</p>
+                                <div class="mb-15 between-flex">
+                                    <div>
+                                        <span>Website Control</span>
+                                        <p class="c-grey mt-5 mb-0 fs-13">Open/Close Website And Type The Reason</p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                        <input class="toggle-checkbox" type="checkbox" checked />
+                                        <div class="toggle-switch"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <textarea class="close-message p-10 rad-6 d-block w-full" placeholder="Close Message Content"></textarea>
                             </div>
-                            <div>
+                        </div>
+                        <!-- End Settings Box -->
+                        <!-- Start Settings Box -->
+                        <div class="p-20 bg-white rad-10">
+                            <form action="{{ path('settings') }}" method="post"> <!-- Replace "/submit_form" with your form submission URL -->
+                                <input type="hidden" name="redirect_url" value="{{ htmlspecialchars($_SERVER['REQUEST_URI']) }}">
+                                <div class="bg-light rounded h-100 p-4">
+                                    <h2 class="mt-0 mb-10">General Info</h2>
+                                    <p class="mt-0 mb-20 c-grey fs-15">General Information About Your Account</p>
+                                    <div class="mb-15">
+                                        <label class="fs-14 c-grey d-block mb-10" for="first">First Name</label>
+                                        <input
+                                            class="b-none border-ccc p-10 rad-6 d-block w-full"
+                                            type="text"
+                                            id="first"
+                                            name="first_name" 
+                                            placeholder="First Name"
+                                        />
+                                    </div>
+                                    <div class="mb-15">
+                                        <label class="fs-14 c-grey d-block mb-10" for="last">Last Name</label>
+                                        <input
+                                            class="b-none border-ccc p-10 rad-6 d-block w-full"
+                                            id="last"
+                                            name="last_name" 
+                                            type="text"
+                                            placeholder="Last Name"
+                                        />
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary m-2">Change</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- End Settings Box -->
+                        <!-- Start Settings Box -->
+                        <div class="p-20 bg-white rad-10" id="security">
+                            <form id="password_form" method="post" action="{{ path('change_password') }}">
+                                <div class="bg-light rounded h-100 p-4">
+                                    <h2 class="mt-0 mb-10">Security Info</h2>
+                                    <p class="mt-0 mb-20 c-grey fs-15">Security Information About Your Account</p>
+                                    <div class="sec-box mb-15 between-flex">
+                                        <div class="mb-15">
+                                            <div class="mb-10">
+                                                <label class="fs-14 c-grey d-block mb-10" for="oldpassword">Tap your old Password</label>
+                                                <input class="b-none border-ccc p-10 rad-6 d-block w-full" type="password" id="oldpassword"
+                                                    name="oldpassword" placeholder="Old Password" />
+                                            </div>
+                                            <div class="mb-10">
+                                                <label class="fs-14 c-grey d-block mb-10" for="password"> Tap your new Password</label>
+                                                <input class="b-none border-ccc p-10 rad-6 d-block w-full" type="password" id="password"
+                                                    name="password" placeholder="New Password" />
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary m-2" id="change_password" name="change_password">Change
+                                            Password</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <form id="email_form" method="post" action="{{ path('change_email') }}">
+                                <div class="bg-light rounded h-100 p-4">
+                                    <div class="sec-box mb-15 between-flex">
+                                        <div class="mb-15">
+                                            <div class="mb-10">
+                                                <label class="fs-14 c-grey d-block mb-10" for="oldemail">Your Old Email</label>
+                                                <input class="b-none border-ccc p-10 rad-6 d-block w-full" type="email" id="oldemail"
+                                                    name="oldemail" placeholder="Old Email" />
+                                            </div>
+                                            <div class="mb-10">
+                                                <label class="fs-14 c-grey d-block mb-10" for="email">Email</label>
+                                                <input class="b-none border-ccc p-10 rad-6 d-block w-full" type="email" id="email"
+                                                    name="email" placeholder="New Email" />
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary m-2" id="change_email" name="change_email">Change
+                                            Email</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="sec-box mb-15 between-flex">
+                                <div>
+                                    <span>Two-Factor Authentication</span>
+                                    <p class="c-grey mt-5 mb-0 fs-13">Enable/Disable The Feature</p>
+                                </div>
                                 <label>
-                                <input class="toggle-checkbox" type="checkbox" checked />
-                                <div class="toggle-switch"></div>
+                                    <input class="toggle-checkbox" type="checkbox" checked />
+                                    <div class="toggle-switch"></div>
                                 </label>
                             </div>
-                            </div>
-                            <textarea class="close-message p-10 rad-6 d-block w-full" placeholder="Close Message Content"></textarea>
-                        </div>
-                    </div>
-                    <!-- End Settings Box -->
-                    <!-- Start Settings Box -->
-                    <div class="p-20 bg-white rad-10">
-                        <form action="settings.php" method="post"> <!-- Replace "/submit_form" with your form submission URL -->
-                            <input type="hidden" name="redirect_url" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>">
-    
-                            <div class="bg-light rounded h-100 p-4">
-                                <h2 class="mt-0 mb-10">General Info</h2>
-                                <p class="mt-0 mb-20 c-grey fs-15">General Information About Your Account</p>
-                                <div class="mb-15">
-                                    <label class="fs-14 c-grey d-block mb-10" for="first">First Name</label>
-                                    <input
-                                        class="b-none border-ccc p-10 rad-6 d-block w-full"
-                                        type="text"
-                                        id="first"
-                                        name="first_name" 
-                                        placeholder="First Name"
-                                    />
-                                </div>
-                                <div class="mb-15">
-                                    <label class="fs-14 c-grey d-block mb-10" for="last">Last Name</label>
-                                    <input
-                                        class="b-none border-ccc p-10 rad-6 d-block w-full"
-                                        id="last"
-                                        name="last_name" 
-                                        type="text"
-                                        placeholder="Last Name"
-                                    />
-                                </div>
+                            <div class="sec-box between-flex">
                                 <div>
-                                    <button type="submit" class="btn btn-primary m-2">Change</button>
+                                    <span>Devices</span>
+                                    <p class="c-grey mt-5 mb-0 fs-13">Check The Login Devices List</p>
                                 </div>
+                                <a class="bg-eee c-black btn-shape" href="#">Devices</a>
                             </div>
-                        </form>
+                        </div>
+                        <!-- End Settings Box -->
+                        <!-- Start Settings Box -->
+                        <div class="social-boxes p-20 bg-white rad-10">
+                            <form action="{{ path('update_social_links') }}" method="post"> <!-- Specify the action attribute with the URL of your PHP script -->
+                                <input type="hidden" name="redirect_url" value="{{ htmlspecialchars($_SERVER['REQUEST_URI']) }}">
+                                <div class="bg-light rounded h-100 p-4">
+                                    <h2 class="mt-0 mb-10">Social Info</h2>
+                                    <p class="mt-0 mb-20 c-grey fs-15">Social Media Information</p>
+                                    <div class="d-flex align-center mb-15">
+                                        <i class="fa-brands fa-twitter center-flex c-grey"></i>
+                                        <input class="w-full" type="text" name="twitter_link" placeholder="Twitter Link" />
+                                    </div>
+                                    <div class="d-flex align-center mb-15">
+                                        <i class="fa-brands fa-facebook-f center-flex c-grey"></i>
+                                        <input class="w-full" type="text" name="facebook_link" placeholder="Facebook Link" />
+                                    </div>
+                                    <div class="d-flex align-center mb-15">
+                                        <i class="fa-brands fa-linkedin center-flex c-grey"></i>
+                                        <input class="w-full" type="text" name="linkedin_link" placeholder="Linkedin Link" />
+                                    </div>
+                                    <div class="d-flex align-center">
+                                        <i class="fa-brands fa-instagram center-flex c-grey"></i>
+                                        <input class="w-full" type="text" name="instagram_link" placeholder="Instagram Link" />
+                                    </div>
+                                    <button type="submit" class="btn btn-primary m-3">Change</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- End Settings Box -->
                     </div>
-                    
-                
-
-                
-                
-                <!-- End Settings Box -->
-                <!-- Start Settings Box -->
-                <div class="p-20 bg-white rad-10" id="security">
-                    <form id="password_form" method="post" action="change.php">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h2 class="mt-0 mb-10">Security Info</h2>
-                            <p class="mt-0 mb-20 c-grey fs-15">Security Information About Your Account</p>
-                            <div class="sec-box mb-15 between-flex">
-                                <div class="mb-15">
-                                    <div class="mb-10">
-                                        <label class="fs-14 c-grey d-block mb-10" for="oldpassword">Tap your old Password</label>
-                                        <input class="b-none border-ccc p-10 rad-6 d-block w-full" type="password" id="oldpassword"
-                                            name="oldpassword" placeholder="Old Password" />
-                                    </div>
-                                    <div class="mb-10">
-                                        <label class="fs-14 c-grey d-block mb-10" for="password"> Tap your new Password</label>
-                                        <input class="b-none border-ccc p-10 rad-6 d-block w-full" type="password" id="password"
-                                            name="password" placeholder="New Password" />
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary m-2" id="change_password" name="change_password">Change
-                                    Password</button>
-                            </div>
-                        </div>
-                    </form>
-                    <form id="email_form" method="post" action="change.php">
-                        <div class="bg-light rounded h-100 p-4">
-                            <div class="sec-box mb-15 between-flex">
-                                <div class="mb-15">
-                                    <div class="mb-10">
-                                        <label class="fs-14 c-grey d-block mb-10" for="oldemail">Your Old Email</label>
-                                        <input class="b-none border-ccc p-10 rad-6 d-block w-full" type="email" id="oldemail"
-                                            name="oldemail" placeholder="Old Email" />
-                                    </div>
-                                    <div class="mb-10">
-                                        <label class="fs-14 c-grey d-block mb-10" for="email">Email</label>
-                                        <input class="b-none border-ccc p-10 rad-6 d-block w-full" type="email" id="email"
-                                            name="email" placeholder="New Email" />
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary m-2" id="change_email" name="change_email">Change
-                                    Email</button>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="sec-box mb-15 between-flex">
-                        <div>
-                            <span>Two-Factor Authentication</span>
-                            <p class="c-grey mt-5 mb-0 fs-13">Enable/Disable The Feature</p>
-                        </div>
-                        <label>
-                            <input class="toggle-checkbox" type="checkbox" checked />
-                            <div class="toggle-switch"></div>
-                        </label>
-                    </div>
-                    <div class="sec-box between-flex">
-                        <div>
-                            <span>Devices</span>
-                            <p class="c-grey mt-5 mb-0 fs-13">Check The Login Devices List</p>
-                        </div>
-                        <a class="bg-eee c-black btn-shape" href="#">Devices</a>
+                </div>  
+            </div>
+            <footer class="shadow" style="background-color: rgb(238, 235, 235);">
+                <div
+                    class="d-flex justify-content-between align-items-center mx-auto py-4 flex-wrap"
+                    style="width: 80%"
+                >
+                    <a href="/#" class="d-flex align-items-center p-0 text-dark">
+                    <img alt="logo" src="{{ asset('img/khedma_logo_f-02.svg') }}" width="80px" />
+                    </a>
+                    <small>&copy; © Copyright 2024  |  All Rights Reserved by <a  href="https://www.wpthemesgrid.com" target="_blank"><small>larma.com</small></a></small>
+                    <div>
+                    <button class="btn btn-dark btn-flat p-2">
+                        <i class="fab fa-facebook"></i>
+                    </button>
+                    <button class="btn btn-dark btn-flat p-2">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button class="btn btn-dark btn-flat p-2">
+                        <i class="fab fa-instagram"></i>
+                    </button>
                     </div>
                 </div>
-                
-                <!-- End Settings Box -->
-                <!-- Start Settings Box -->
-                <div class="social-boxes p-20 bg-white rad-10">
-                    <form action="update_social_links.php" method="post"> <!-- Specify the action attribute with the URL of your PHP script -->
-                        <input type="hidden" name="redirect_url" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>">
-    
-                        <div class="bg-light rounded h-100 p-4">
-                            <h2 class="mt-0 mb-10">Social Info</h2>
-                            <p class="mt-0 mb-20 c-grey fs-15">Social Media Information</p>
-                            <div class="d-flex align-center mb-15">
-                                <i class="fa-brands fa-twitter center-flex c-grey"></i>
-                                <input class="w-full" type="text" name="twitter_link" placeholder="Twitter Link" />
-                            </div>
-                            <div class="d-flex align-center mb-15">
-                                <i class="fa-brands fa-facebook-f center-flex c-grey"></i>
-                                <input class="w-full" type="text" name="facebook_link" placeholder="Facebook Link" />
-                            </div>
-                            <div class="d-flex align-center mb-15">
-                                <i class="fa-brands fa-linkedin center-flex c-grey"></i>
-                                <input class="w-full" type="text" name="linkedin_link" placeholder="Linkedin Link" />
-                            </div>
-                            <div class="d-flex align-center">
-                                <i class="fa-brands fa-instagram center-flex c-grey"></i>
-                                <input class="w-full" type="text" name="instagram_link" placeholder="Instagram Link" />
-                            </div>
-                            <button type="submit" class="btn btn-primary m-3">Change</button>
-                        </div>
-                    </form>
-                </div>
-                
-                <!-- End Settings Box -->
-                
-                
-                
-                </div>
-            </div>  
+            </footer>
+            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
         </div>
 
-            
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/chart/chart.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/tempusdominus/js/moment.min.js"></script>
+        <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+        <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-
-            
-
-
-
-
-
-           
-
-
-        <br>
-<div class="blockcode">
-    
-    <footer class="shadow" style="background-color: rgb(238, 235, 235);">
-      <div
-        class="d-flex justify-content-between align-items-center mx-auto py-4 flex-wrap"
-        style="width: 80%"
-      >
-        <a href="/#" class="d-flex align-items-center p-0 text-dark">
-          <img alt="logo" src="../img/khedma_logo_f-02.svg" width="80px" />
-          <!-- <span class="ms-4 h5 font-weight-bold">Devwares</span> -->
-        </a>
-        <small>&copy; © Copyright 2024  |  All Rights Reserved by <a  href="https://www.wpthemesgrid.com" target="_blank"><small>larma.com</small></a></small>
-        <div>
-          <button class="btn btn-dark btn-flat p-2">
-            <i class="fab fa-facebook"></i>
-          </button>
-          <button class="btn btn-dark btn-flat p-2">
-            <i class="fab fa-twitter"></i>
-          </button>
-          <button class="btn btn-dark btn-flat p-2">
-            <i class="fab fa-instagram"></i>
-          </button>
-        </div>
-      </div>
-    </footer>
-    <br>
-    <br>
-    <br>
-        </div>
-        <!-- Content End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-    </div>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-</body>
-
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
 </html>
