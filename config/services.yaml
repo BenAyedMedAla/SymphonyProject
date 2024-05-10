@@ -3,13 +3,15 @@
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+# config/services.yaml
 parameters:
+    cin_image_directory: '%kernel.project_dir%/public/lesCINSworkers'
+    cv_image_directory: '%kernel.project_dir%/public/lesCVS'
+    cin_manager_image_directory: '%kernel.project_dir%/public/lesCINgerants'
 
 services:
-    App\Controller\RegistrationController:
-        autowire: true
-        autoconfigure: true
-        public: true
+  
+        
 
     # default configuration for services in *this* file
     _defaults:
