@@ -7,12 +7,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class ContactController extends AbstractController
 {
     
-    #[Route('/home', name: 'home')]
+    #[Route('/contact', name: 'contact')]
  function index():Response{
-    return $this->render('tpweb/index.html.twig') ;
+    return $this->render('tpweb/contact.html.twig') ;
 
 }}
 

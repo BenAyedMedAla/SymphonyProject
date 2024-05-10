@@ -1,0 +1,76 @@
+<div class="preloader">
+            <div class="loader">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+
+                <div class="indicator"> 
+                    <svg width="16px" height="12px">
+                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+<header class="header" >
+			
+			<!-- Header Inner -->
+			<div class="header-inner">
+				<div class="container">
+					<div class="inner">
+						<div class="row">
+							<div class="col-lg-3 col-md-3 col-12">
+								<!-- Start Logo -->
+								<div class="logo">
+									<a href="index.html"><img src="./img/khedma_logo_f-02.svg" alt="" style="height: 5vh;">
+									</a></div>
+								<!-- End Logo -->
+								<!-- Mobile Nav -->
+								<div class="mobile-nav"></div>
+								<!-- End Mobile Nav -->
+							</div>
+							<div class="col-md-9 col-12">
+								<!-- Main Menu -->
+								<div class="main-menu">
+									<nav class="navigation">
+										<ul class="nav menu">
+											<li class="{{app.request.attributes.get('_route') == 'home' ? 'active' : ''}}"><a href="{{path('home')}}">Home</a>
+												
+													
+												
+											</li>
+											<li class="{{app.request.attributes.get('_route') == 'categories' ? 'active' : ''}}"><a href="{{path('categories')}}">Categories </a></li>
+											<li><a href="{{path('home')}}">Find a Worker <i class="icofont-rounded-down"></i></a>
+												<ul class="dropdown">
+													<li><button class="btn btn-outline-primary m-2" data-toggle="modal" data-target="#modal-login"onclick="openModal('worker-seeker')" >LOGIN</button></li>
+													<li>
+														 
+															<button class="btn btn-outline-primary m-2" data-toggle="modal" data-target="#modal-worker-seeker" >REGISTER</button>
+															<i class="fa fa-user" aria-hidden="true"></i>
+														 
+													</li>
+												</ul>
+											</li>
+											<li><a href="{{path('home')}}">Find a Job <i class="icofont-rounded-down"></i></a>
+												<ul class="dropdown">
+													<li><button class="btn btn-outline-primary m-2" data-toggle="modal" data-target="#modal-login"onclick="openModal('job-seeker')" >LOGIN</button></li>
+													
+													<li >
+														
+														  <button class="btn btn-outline-primary m-2" data-toggle="modal" data-target="#modal-job-seeker" >REGISTER</button>
+														  <i class="fa fa-user" aria-hidden="true"></i>
+														
+													  </li></ul>
+											</li>
+											<li class="{{app.request.attributes.get('_route') == 'contact' ? 'active' : ''}}"><a href="{{path('contact')}}">Contact Us</a></li>
+										</ul>
+									</nav>
+								</div>
+								<!--/ End Main Menu -->
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ End Header Inner -->
+		</header>

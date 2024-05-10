@@ -7,12 +7,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class CategoriesController extends AbstractController
 {
     
-    #[Route('/home', name: 'home')]
+    #[Route('/categories', name: 'categories')]
  function index():Response{
-    return $this->render('tpweb/index.html.twig') ;
+    return $this->render('tpweb/category.html.twig') ;
 
 }}
 
