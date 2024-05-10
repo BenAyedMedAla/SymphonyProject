@@ -20,10 +20,11 @@ class LoginController1 extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    #[Route('/login1', name: 'app_log',methods: ['POST'])]
+    #[Route('/login1', name: 'app_log',methods: ['Get','POST'])]
     public function login(Request $request): Response
     {
         $formData = $request->request->all();
+        
         $email =$formData['email'];
         $password = $request->request->get('password');
       
